@@ -1,8 +1,9 @@
 <section class="header">
   <h1>Hosts</h1>
 
-  {{#link-to "hosts.new" classNames="btn btn-sm btn-primary"}}Add Host{{/link-to}}
-
+  {{#if isAdmin}}
+     {{#link-to "hosts.new" classNames="btn btn-sm btn-primary"}}Add Host{{/link-to}}
+  {{/if}}
   <div class="btn-group pull-right">
     {{tooltip-link icon="icon-ellipsis" text="List" options=listLinkOptions}}
     {{tooltip-link icon="icon-layeredgroup" text="Grouped Stacks & Sidekicks" options=groupLinkOptions}}
