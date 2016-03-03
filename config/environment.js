@@ -39,8 +39,8 @@ module.exports = function(environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
       version: pkg.version,
-      appName: 'Rancher',
-      apiServer: 'http://localhost:8080',
+      appName: 'DigiDocker',
+      apiServer: 'http://62.210.100.157::8080',
       apiEndpoint: '/v1',
       catalogServer: '',
       catalogEndpoint: '/v1-catalog',
