@@ -12,6 +12,8 @@ export function initialize(instance) {
   var session = container.lookup('service:session');
   store.set('removeAfterDelete', false);
 
+  console.log( "Franck is here" );
+
   store.reopen({
     baseUrl: application.apiEndpoint,
 

@@ -9,6 +9,11 @@
         <br/>
       {{/if}}
 
+      {{#if isGitlab}}
+        <p>{{settings.appName}} uses GitLab to manage accounts and teams.  Click the button below to log in and give us read-only access to your basic GitLab account information.</p>
+        <br/>
+      {{/if}}
+
       {{#if infoMsg}}
         <div class="alert {{if errorMsg 'alert-danger' 'alert-warning'}}" role="alert">{{infoMsg}}</div>
       {{/if}}
@@ -18,6 +23,10 @@
       {{/if}}
       {{#if isGithub}}
         {{login-github action="started" waiting=waiting}}
+      {{/if}}
+
+      {{#if isGitlab}}
+        {{login-gitlab action="started" waiting=waiting}}
       {{/if}}
     </section>
   </div>

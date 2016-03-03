@@ -5,6 +5,9 @@ export default Ember.Route.extend({
 
   model: function() {
     var route = (this.get('access.provider')||'').toLowerCase().replace(/config$/i,'');
+
+    console.error("here")
+
     if ( route === 'ldap' )
     {
       route = 'activedirectory';

@@ -49,6 +49,13 @@ var C = {
     SCOPE: 'read:org',
   },
 
+  GITLAB: {
+    DEFAULT_HOSTNAME: 'gitlab.digitas.fr',
+    AUTH_PATH: '/login/oauth/authorize',
+    PROXY_URL: '/github/',
+    SCOPE: 'read:org',
+  },
+
   HEADER: {
     PROJECT: 'x-api-project-id',
     NO_CHALLENGE: 'x-api-no-challenge',
@@ -120,6 +127,9 @@ var C = {
     TYPE_GITHUB_USER:     'github_user',
     TYPE_GITHUB_TEAM:     'github_team',
     TYPE_GITHUB_ORG:      'github_org',
+    TYPE_GITLAB_USER:     'gitlab_user',
+    TYPE_GITLAB_TEAM:     'gitlab_team',
+    TYPE_GITLAB_ORG:      'gitlab_org',
     TYPE_LDAP_USER:       'ldap_user',
     TYPE_LDAP_GROUP:      'ldap_group',
     TYPE_OPENLDAP_USER:   'openldap_user',
@@ -144,6 +154,8 @@ var C = {
     GITHUB_CACHE: 'githubCache',
     GITHUB_ORGS: 'orgs',
     GITHUB_TEAMS: 'teams',
+    GITLAB_ORGS: 'orgs',
+    GITLAB_TEAMS: 'teams',
   },
 
   SETTING: {
@@ -194,6 +206,8 @@ C.TOKEN_TO_SESSION_KEYS = [
   C.SESSION.USER_TYPE,
   C.SESSION.GITHUB_TEAMS,
   C.SESSION.GITHUB_ORGS,
+  C.SESSION.GITLAB_TEAMS,
+  C.SESSION.GITLAB_ORGS,
   C.SESSION.IDENTITY,
   C.SESSION.IDENTITY_TYPE
 ];

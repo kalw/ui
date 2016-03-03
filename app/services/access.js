@@ -5,6 +5,7 @@ export default Ember.Service.extend({
   cookies: Ember.inject.service(),
   session: Ember.inject.service(),
   github:  Ember.inject.service(),
+  gitlab:  Ember.inject.service(),
 
   // The identity from the session isn't an actual identity model...
   identity: function() {
@@ -45,6 +46,15 @@ export default Ember.Service.extend({
         this.setProperties({
           'github.clientId': token.clientId,
           'github.hostname': token.hostname,
+        });
+      }
+
+
+      if ( (token.authProvider||'').toLowerCase() === 'gitlabconfig' )
+      {
+        this.setProperties({
+          'gitlab.clientId': token.clientId,
+          'gitlab.hostname': token.hostname,
         });
       }
 

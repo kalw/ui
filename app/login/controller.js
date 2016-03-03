@@ -6,6 +6,7 @@ export default Ember.Controller.extend({
   settings: Ember.inject.service(),
 
   isGithub: Ember.computed.equal('access.provider', 'githubconfig'),
+  isGitlab: Ember.computed.equal('access.provider', 'gitlabconfig'),
   isActiveDirectory: Ember.computed.equal('access.provider', 'ldapconfig'),
   isOpenLdap: Ember.computed.equal('access.provider', 'openldapconfig'),
   isLocal: Ember.computed.equal('access.provider', 'localauthconfig'),

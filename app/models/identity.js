@@ -26,6 +26,15 @@ var Identity = Resource.extend({
     ].indexOf(this.get('externalIdType')) >= 0;
   }.property('externalIdType'),
 
+
+  isGitlab: function() {
+    return [
+      C.PROJECT.TYPE_GITLAB_ORG,
+      C.PROJECT.TYPE_GITLAB_TEAM,
+      C.PROJECT.TYPE_GITLAB_USER
+    ].indexOf(this.get('externalIdType')) >= 0;
+  }.property('externalIdType'),
+
   isMyRancher: function() {
     return this.get('externalIdType') === C.PROJECT.TYPE_RANCHER &&
       this.get('externalId') === this.get('session').get(C.SESSION.ACCOUNT_ID);
@@ -36,14 +45,17 @@ var Identity = Resource.extend({
     {
       case C.PROJECT.TYPE_RANCHER:
       case C.PROJECT.TYPE_GITHUB_USER:
+      case C.PROJECT.TYPE_GITLAB_USER:
       case C.PROJECT.TYPE_LDAP_USER:
       case C.PROJECT.TYPE_OPENLDAP_USER:
         return C.PROJECT.PERSON;
 
       case C.PROJECT.TYPE_GITHUB_TEAM:
+      case C.PROJECT.TYPE_GITLAB_TEAM:
         return C.PROJECT.TEAM;
 
       case C.PROJECT.TYPE_GITHUB_ORG:
+      case C.PROJECT.TYPE_GITLAB_ORG:
       case C.PROJECT.TYPE_LDAP_GROUP:
       case C.PROJECT.TYPE_OPENLDAP_GROUP:
         return C.PROJECT.ORG;
@@ -64,10 +76,14 @@ var Identity = Resource.extend({
     switch ( this.get('externalIdType') )
     {
       case C.PROJECT.TYPE_GITHUB_USER:
+      case C.PROJECT.TYPE_GITLAB_USER:
       case C.PROJECT.TYPE_LDAP_USER:
       case C.PROJECT.TYPE_OPENLDAP_USER:  return 'User';
 
+      case C.PROJECT.TYPE_GITLAB_TEAM:
       case C.PROJECT.TYPE_GITHUB_TEAM:    return 'Team';
+
+      case C.PROJECT.TYPE_GITLAB_ORG:
       case C.PROJECT.TYPE_GITHUB_ORG:     return 'Organization';
       case C.PROJECT.TYPE_LDAP_GROUP:     return 'Group';
       case C.PROJECT.TYPE_OPENLDAP_GROUP: return 'Group';
