@@ -11,7 +11,7 @@ export default Ember.ObjectController.extend({
     return [
       {route: 'admin-tab.auth.activedirectory', label: 'Active Directory',  css: 'activedirectory', available: has('ldapconfig')  },
       {route: 'admin-tab.auth.github',          label: 'GitHub',            css: 'github',          available: has('githubconfig')  },
-      {route: 'admin-tab.auth.gitlab',          label: 'GitLab',            css: 'gitlab',          available: true },
+      {route: 'admin-tab.auth.gitlab',          label: 'GitLab',            css: 'gitlab',          available: has('gitlabconfig') },
       {route: 'admin-tab.auth.localauth',       label: 'Local',             css: 'local',           available: has('localauthconfig')  },
       {route: 'admin-tab.auth.openldap',        label: 'OpenLDAP',          css: 'openldap',        available: has('openldapconfig')  },
     ];
