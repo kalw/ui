@@ -133,6 +133,9 @@ Router.map(function() {
         this.route('index', {path: '/'});
         this.route('launch', {path: '/:template'});
       });
+
+
+      this.route( 'freestyle' );
     });
 
     this.route('help');
