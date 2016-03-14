@@ -17,6 +17,19 @@ If you're on a Mac and use Homebrew, you can follow these steps:
   brew install node watchman
   npm install -g bower
 ```
+Or via a Ubuntu docker container:
+```bash
+git clone .... /tmp/repo_git/
+docker run --rm -ti -v /tmp/repo_git/ ubuntu bash
+
+apt-get install -y nodejs npm git sudo
+ln -s /usr/bin/nodejs /usr/bin/node
+npm install -g bower 
+sed -ie 's/bower install/bower install --allow-root/' /tmp/repo_git/scripts/update-dependencies
+/tmp/repo_git/scripts/update-dependencies
+cd /tmp/repo_git/
+npm start
+````
 
 Setup:
 ```bash
