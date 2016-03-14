@@ -22,6 +22,7 @@ Or via a Ubuntu docker container:
 git clone .... /tmp/repo_git/
 docker run --rm -ti -v /tmp/repo_git/ ubuntu bash
 
+apt-get update
 apt-get install -y nodejs npm git sudo
 ln -s /usr/bin/nodejs /usr/bin/node
 npm install -g bower 
